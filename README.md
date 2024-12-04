@@ -52,16 +52,6 @@ outlier_detection/
 │       ├── evaluation.py
 │       └── visualization.py
 │
-├── tests/                  # 테스트 코드
-│   ├── test_statistical/
-│   ├── test_ml_integration/
-│   └── test_pipeline/
-│
-├── examples/               # 사용 예제
-│   ├── statistical_example.py
-│   ├── ml_example.py
-│   └── pipeline_example.py
-│
 ├── requirements.txt
 ├── setup.py
 └── README.md
