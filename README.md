@@ -83,22 +83,52 @@ Machine learning-based methods are integrated using established libraries (sciki
 - Provide unified parameter management
 - Enable easy pipeline integration
 
-## Usage
+## Usage Examples
+
+### Univariate Analysis
 
 ```python
-from outlier_detection import OutlierDetectionPipeline
-from outlier_detection.statistical import CUSUM, EWMA, TSquared
 
-# Initialize pipeline with desired methods
-pipeline = OutlierDetectionPipeline([
+from outlier_detection import OutlierDetectionPipeline
+
+from outlier_detection.statistical import CUSUM, EWMA
+
+# For single variable monitoring
+
+univariate_pipeline = OutlierDetectionPipeline([
+
     CUSUM(threshold=5),
-    EWMA(lambda_=0.3),
-    'isolation_forest',  # String identifier for integrated ML methods
-    'lof'
+
+    EWMA(lambda_=0.3)
+
 ])
 
-# Fit and detect outliers
-results = pipeline.fit_detect(data)
+# Fit and detect outliers in time series data
+
+results = univariate_pipeline.fit_detect(time_series_data)
+
+```
+
+### Multivariate Analysis
+
+```python
+
+# For multiple variables/features
+
+multivariate_pipeline = OutlierDetectionPipeline([
+
+    'tsquared',  # For process monitoring
+
+    'isolation_forest',  # For complex pattern detection
+
+    'lof'  # For density-based detection
+
+])
+
+# Fit and detect outliers in multi-dimensional data
+
+results = multivariate_pipeline.fit_detect(multivariate_data)
+
 ```
 
 ## Installation
